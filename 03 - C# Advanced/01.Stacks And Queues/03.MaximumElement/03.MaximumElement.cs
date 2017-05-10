@@ -11,7 +11,8 @@ namespace _03.MaximumElement
         public static void Main()
         {
             var countQueries = int.Parse(Console.ReadLine());
-            var stack = new Stack<int>();
+            var numbers = new Stack<int>();
+            var maxNumbers = new Stack<int>();
             var maxValue = int.MinValue;
 
             for (int i = 0; i < countQueries; i++)
@@ -24,24 +25,26 @@ namespace _03.MaximumElement
                 switch (query[0])
                 {
                     case 1:
-                        stack.Push(query[1]);
+                        numbers.Push(query[1]);
                         if (query[1] > maxValue)
+                        {
+                            maxNumbers.Push(query[1]);
                             maxValue = query[1];
+                        }                            
                         break;
                     case 2:
-                        if (stack.Peek() == maxValue)
+                        if (numbers.Pop() == maxValue)
                         {
-                            stack.Pop();
-                            if (stack.Count != 0)
+                            maxNumbers.Pop();
+                            if (maxNumbers.Count != 0)
                             {
-                                maxValue = stack.Max();
+                                maxValue = maxNumbers.Peek();
                             }
                             else
                             {
                                 maxValue = int.MinValue;
                             }
                         }
-                        else stack.Pop();
                         break;
                     case 3:
                         Console.WriteLine(maxValue);
