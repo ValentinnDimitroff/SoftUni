@@ -7,6 +7,7 @@ namespace _5.Crossfire
 {
     public class Crossfire
     {
+        //author: Valentin Dimitrov
         public static void Main()
         {
             var dimensions = Console.ReadLine()
@@ -29,8 +30,8 @@ namespace _5.Crossfire
                 //var endRow = tokens[0] + tokens[2] < rows ? tokens[0] + tokens[2] : rows -1;
                 //var beginCol = tokens[1] - tokens[2] >= 0 ? tokens[1] - tokens[2] : 0;
                 //var endCol = tokens[1] + tokens[2] < cols ? tokens[1] + tokens[2] : cols - 1;
-                if (IsInMatrix(rowShot, 0, matrix))
-                {
+                //if (IsInMatrix(rowShot, 0, matrix))
+                //{
                     for (int col = colShot - radius; col <= colShot + radius; col++)
                     {
                         if (IsInMatrix(rowShot, col, matrix))
@@ -38,71 +39,70 @@ namespace _5.Crossfire
                             matrix[rowShot][col] = -1;
                         }
                     }
-                }
+                //}
 
-                if (IsInMatrix(0, colShot, matrix))
-                {
+                //if (IsInMatrix(0, colShot, matrix))
+                //{
                     for (int row = rowShot - radius; row <= rowShot + radius; row++)
                     {
                         if (IsInMatrix(row, colShot, matrix))
                         {
                             matrix[row][colShot] = -1;
-                            //matrix[row] = matrix[row].Where(a => a != -1).ToArray();
-                            //if (matrix[row].Length == 0)
-                            //{
-                            //    matrix = matrix.Where((arr, i) => i != row).ToArray();
-                            //}
                         }
                     }
-                }
+                //}
 
                 matrix = FilterMatrix(matrix);
-                //if (IsInMatrix(rowShot, 0, matrix))
-                //{
-                //    matrix[rowShot] = matrix[rowShot].Where(a => a != -1).ToArray();
-                //    if (matrix[rowShot].Length == 0)
-                //    {
-                //        matrix = matrix.Where((arr, i) => i != rowShot).ToArray();
-                //    }
-                //}
                 command = Console.ReadLine();
             }
             PrintJaggedArray(matrix);
         }
 
-        private static int[][] FilterMatrix(int[][] matrix)
+        private static List<List<int>> FilterMatrix(List<List<int>> matrix)
         {
-            for (int row = 0; row < matrix.Length; row++)
+            //Search the matrix upside down because the Count changes all the time
+            for (int row = matrix.Count - 1; row >= 0; row--)
             {
-                matrix[row] = matrix[row].Where(x => x != -1).ToArray();
+                for (int col = matrix[row].Count - 1; col >= 0; col--)
+                {
+                    if (matrix[row][col] == -1)
+                    {
+                        matrix[row].RemoveAt(col);
+                    }
+                }
+                //Delete empty rows - four tests
+                if (matrix[row].Count == 0)
+                {
+                    matrix.RemoveAt(row);
+                }
             }
             return matrix;
         }
 
-        private static void PrintJaggedArray(int[][] jaggedArray)
+        private static void PrintJaggedArray(List<List<int>> matrix)
         {
-            for (int i = 0; i < jaggedArray.Length; i++)
+            for (int row = 0; row < matrix.Count; row++)
             {
-                Console.WriteLine(string.Join(" ", jaggedArray[i]));
+                Console.WriteLine(string.Join(" ", matrix[row]));
             }
         }
 
-        private static bool IsInMatrix(int currentRow, int currentCol, int[][] matrix)
+        private static bool IsInMatrix(int currentRow, int currentCol, List<List<int>> matrix)
         {
-            return currentRow >= 0 && currentRow < matrix.Length && 
-                   currentCol >= 0 && currentCol < matrix[currentRow].Length;
+            return currentRow >= 0 && currentRow < matrix.Count && 
+                   currentCol >= 0 && currentCol < matrix[currentRow].Count;
         }
 
-        private static int[][] InitializeMatrix(int[] dimensions)
+        private static List<List<int>> InitializeMatrix(int[] dimensions)
         {
-            var matrix = new int[dimensions[0]][];
+            var matrix = new List<List<int>>();
             var element = 1;
             for (int row = 0; row < dimensions[0]; row++)
             {
-                matrix[row] = new int[dimensions[1]];
+                matrix.Add(new List<int>()); 
                 for (int col = 0; col < dimensions[1]; col++)
                 {
-                    matrix[row][col] = element;
+                    matrix[row].Add(element);
                     element++;
                 }
             }
