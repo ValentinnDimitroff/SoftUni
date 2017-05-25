@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _07.BalancedParanthesis
 {
@@ -11,7 +9,6 @@ namespace _07.BalancedParanthesis
         public static void Main()
         {
             var paranthesisLine = Console.ReadLine();
-            var mismatch = false;
             var openingCases = new[] { '{', '[', '(' };
             var openedParanths = new Stack<char>();
 
@@ -23,35 +20,42 @@ namespace _07.BalancedParanthesis
                 }
                 else
                 {
-                    if (openedParanths.Count != 0)
+                    if (openedParanths.Count == 0)
                     {
-                        switch (symbol)
-                        {
-                            case ')':
-                                if (openedParanths.Pop() != '(')
-                                    mismatch = true;
-                                break;
-                            case ']':
-                                if (openedParanths.Pop() != '[')
-                                    mismatch = true;
-                                break;
-                            case '}':
-                                if (openedParanths.Pop() != '{')
-                                    mismatch = true;
-                                break;
-                        }
+                        Console.WriteLine("NO");
+                        return;
                     }
-                    else
+                    switch (symbol)
                     {
-                        mismatch = true;
+                        case ')':
+                            if (openedParanths.Pop() != '(')
+                            {
+                                Console.WriteLine("NO");
+                                return;
+                            }
+
+                            break;
+
+                        case ']':
+                            if (openedParanths.Pop() != '[')
+                            {
+                                Console.WriteLine("NO");
+                                return;
+                            }
+                            break;
+
+                        case '}':
+                            if (openedParanths.Pop() != '{')
+                            {
+                                Console.WriteLine("NO");
+                                return;
+                            }
+                            break;
                     }
                 }
             }
 
-            if (mismatch)
-                Console.WriteLine("NO");
-            else
-                Console.WriteLine("YES");
+            Console.WriteLine("YES");
         }
     }
 }

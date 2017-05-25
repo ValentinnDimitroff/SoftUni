@@ -11,8 +11,7 @@ namespace _06.TruckTour
         public static void Main()
         {
             var pumpsNumber = long.Parse(Console.ReadLine());
-            var petrolAmounts = new Queue<long>();
-            var distancesToNext = new Queue<long>();
+            var petrolStation = new Queue<long[]>();
 
             for (long i = 0; i < pumpsNumber; i++)
             {
@@ -20,8 +19,7 @@ namespace _06.TruckTour
                     .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
                     .Select(long.Parse)
                     .ToArray();
-                petrolAmounts.Enqueue(pumpInfoParams[0]);
-                distancesToNext.Enqueue(pumpInfoParams[1]);
+                petrolStation.Enqueue(pumpInfoParams);
             }
 
             bool reachFinal = false;
@@ -39,12 +37,10 @@ namespace _06.TruckTour
                         break;
                     }
 
-                    var currentAmount = petrolAmounts.Dequeue();
-                    petrolAmounts.Enqueue(currentAmount);
-                    var currentDistance = distancesToNext.Dequeue();
-                    distancesToNext.Enqueue(currentDistance);
+                    var currentStation = petrolStation.Dequeue();
+                    petrolStation.Enqueue(currentStation);
 
-                    totalAmount += currentAmount - currentDistance;
+                    totalAmount += currentStation[0] - currentStation[1];
                     if (totalAmount  < 0)
                     {
                         startingIndex += i + 1;
@@ -52,7 +48,6 @@ namespace _06.TruckTour
                     }
                 }
             }
-
             Console.WriteLine(startingIndex);
         }
     }

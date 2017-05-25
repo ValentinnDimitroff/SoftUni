@@ -9,8 +9,8 @@ namespace _14.Dragon_Army
     public class Dragon_Army
     {
         private const int DEFAULT_DMG  = 45;
-        private const int DEFAULT_HLT  = 45;
-        private const int DEFAULT_ARM  = 45;
+        private const int DEFAULT_HLT  = 250;
+        private const int DEFAULT_ARM  = 10;
         public static void Main()
         {
             int dragonsCount = int.Parse(Console.ReadLine());
@@ -49,8 +49,8 @@ namespace _14.Dragon_Army
                 var dragonsFromType = new StringBuilder();
                 foreach (var dragon in dragonType.Value)
                 {
-                    dragonsFromType.Append($"-{dragon.Key} -> damage:{dragon.Value[0]}," + 
-                        $"health:{dragon.Value[1]}, armor:{dragon.Value[2]}");
+                    dragonsFromType.Append($"-{dragon.Key} -> damage: {dragon.Value[0]}, " + 
+                        $"health: {dragon.Value[1]}, armor: {dragon.Value[2]}");
                     dragonsFromType.Append("\r\n");
                     avrDamage += dragon.Value[0];
                     avrHealth += dragon.Value[1];

@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _11.PoisonousPlants
 {
@@ -28,7 +26,7 @@ namespace _11.PoisonousPlants
                     maxDays = Math.Max(maxDays, dayPlantsDeath[prevPlants.Pop()]); //safe before the day this plant dies (if 0 - forever)
                 }
 
-                if (prevPlants.Count > 0) //finally the plant will dye because of lower number downwards
+                if (prevPlants.Count > 0) //finally the plant will die because of lower number downwards
                 {
                     dayPlantsDeath[i] = maxDays + 1; //today
                 }

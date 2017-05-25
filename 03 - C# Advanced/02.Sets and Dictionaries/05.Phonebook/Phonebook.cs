@@ -10,10 +10,9 @@ namespace _05.Phonebook
     {
         public static void Main()
         {
-#pragma warning disable CS0219 // Variable is assigned but its value is never used
             var message = "";
             var phoneBook = new Dictionary<string, string>();
-#pragma warning restore CS0219 // Variable is assigned but its value is never used
+
             while (message != "search")
             {
                 message = Console.ReadLine();

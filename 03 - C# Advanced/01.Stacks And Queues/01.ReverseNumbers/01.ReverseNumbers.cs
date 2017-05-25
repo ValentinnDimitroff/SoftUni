@@ -11,8 +11,7 @@ namespace _01.ReverseNumbers
         public static void Main()
         {
             int[] inputNumbers = Console.ReadLine()
-                .Split( new[] { ' ' }, 
-                StringSplitOptions.RemoveEmptyEntries)
+                .Split( )
                 .Select(int.Parse)
                 .ToArray();
 

@@ -15,7 +15,7 @@ namespace _09.StackFibonacci
 
             var fibonacciNumbers = new Stack<ulong>();
             fibonacciNumbers.Push(0);
-            fibonacciNumbers.Push(1);
+            if(nthNumber > 0) fibonacciNumbers.Push(1);
 
             if (nthNumber >= 2)
             {
