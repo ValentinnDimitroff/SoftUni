@@ -10,12 +10,11 @@ namespace _05.Phonebook
     {
         public static void Main()
         {
-            var message = "";
             var phoneBook = new Dictionary<string, string>();
+            var message = Console.ReadLine();
 
             while (message != "search")
             {
-                message = Console.ReadLine();
                 var contactParams = message
                     .Split('-')
                     .ToArray();
@@ -23,8 +22,11 @@ namespace _05.Phonebook
                 {
                     phoneBook[contactParams[0]] = contactParams[1];
                 }
+                message = Console.ReadLine();
             }
+
             message = Console.ReadLine();
+
             while (message != "stop")
             {
                 if (phoneBook.ContainsKey(message))

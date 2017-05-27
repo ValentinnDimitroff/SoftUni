@@ -59,8 +59,7 @@ namespace _08.Hands_of_Cards
             while (handout != "JOKER")
             {
                 var handoutParams = handout
-                    .Split(':')
-                    .ToArray();
+                    .Split(':');
                 var person = handoutParams[0];
                 var cards = handoutParams[1]
                     .Split(',')

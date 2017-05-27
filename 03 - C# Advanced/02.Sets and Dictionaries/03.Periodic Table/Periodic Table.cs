@@ -17,6 +17,7 @@ namespace _03.Periodic_Table
             {
                 var compound = Console.ReadLine()
                     .Split();
+                    //.ToArray();
 
                 foreach (var element in compound)
                 {

@@ -26,7 +26,6 @@ namespace _14.Dragon_Army
                 int damage = dragonParams[2].Equals("null") ? DEFAULT_DMG : int.Parse(dragonParams[2]);
                 int health = dragonParams[3].Equals("null") ? DEFAULT_HLT : int.Parse(dragonParams[3]);
                 int armor = dragonParams[4].Equals("null") ? DEFAULT_ARM : int.Parse(dragonParams[4]);
-                
 
                 if (allDragons.ContainsKey(dragonType))
                 {
