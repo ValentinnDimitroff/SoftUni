@@ -18,7 +18,7 @@ namespace _02.Sets_of_Elements
             var m = setsSizes[1];
 
             var elementsN = new HashSet<int>();
-            var commonElements = new HashSet<int>();
+            var elementsM = new HashSet<int>();
 
             for (int i = 0; i < n; i++)
             {
@@ -27,14 +27,12 @@ namespace _02.Sets_of_Elements
 
             for (int i = 0; i < m; i++)
             {
-                var newNumber = int.Parse(Console.ReadLine());
-                if (elementsN.Contains(newNumber))
-                {
-                    commonElements.Add(newNumber);
-                }
+                elementsM.Add(int.Parse(Console.ReadLine()));
             }
 
-            Console.WriteLine(string.Join(" ", commonElements));
+            elementsN.IntersectWith(elementsM);
+
+            Console.WriteLine(string.Join(" ", elementsN));
         }
     }
 }
