@@ -10,14 +10,14 @@ namespace _06.TruckTour
     {
         public static void Main()
         {
-            var pumpsNumber = long.Parse(Console.ReadLine());
-            var petrolStation = new Queue<long[]>();
+            var pumpsNumber = int.Parse(Console.ReadLine());
+            var petrolStation = new Queue<int[]>();
 
-            for (long i = 0; i < pumpsNumber; i++)
+            for (int i = 0; i < pumpsNumber; i++)
             {
                 var pumpInfoParams = Console.ReadLine()
                     .Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(long.Parse)
+                    .Select(int.Parse)
                     .ToArray();
                 petrolStation.Enqueue(pumpInfoParams);
             }
@@ -27,7 +27,7 @@ namespace _06.TruckTour
 
             while (!reachFinal)
             {
-                long totalAmount = 0;
+                int totalAmount = 0;
                 
                 for (int i = 0; i <= pumpsNumber; i++)
                 {
