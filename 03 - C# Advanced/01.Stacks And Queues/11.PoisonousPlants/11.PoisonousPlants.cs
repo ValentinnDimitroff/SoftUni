@@ -24,6 +24,7 @@ namespace _11.PoisonousPlants
                 while (prevPlants.Count > 0 && plants[prevPlants.Peek()] >= plants[i]) //is the current plant in correct order
                 {
                     maxDays = Math.Max(maxDays, dayPlantsDeath[prevPlants.Pop()]); //safe before the day this plant dies (if 0 - forever)
+                    //maxDays = dayPlantsDeath[prevPlants.Pop()];
                 }
 
                 if (prevPlants.Count > 0) //finally the plant will die because of lower number downwards
