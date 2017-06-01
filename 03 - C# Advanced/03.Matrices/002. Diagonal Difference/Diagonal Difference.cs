@@ -11,7 +11,8 @@ namespace _002.Diagonal_Difference
         public static void Main()
         {
             int n = int.Parse(Console.ReadLine());
-            var matrix = FillMatrix(n);
+            int[,] matrix = new int[n, n];
+            FillMatrix(n, matrix);
             int sumPrimary = 0, sumSecondary = 0;
 
             for (int row = 0; row < n; row++)
@@ -31,9 +32,8 @@ namespace _002.Diagonal_Difference
             Console.WriteLine(Math.Abs(sumPrimary - sumSecondary));
         }
 
-        private static int[,] FillMatrix(int n)
+       private static void FillMatrix(int n, int[,] matrix)
         {
-            var matrix = new int[n, n];
             for (int row = 0; row < n; row++)
             {
                 var line = Console.ReadLine()
@@ -47,7 +47,7 @@ namespace _002.Diagonal_Difference
                 }
             }
 
-            return matrix;
+            //return matrix;
         }
     }
 }

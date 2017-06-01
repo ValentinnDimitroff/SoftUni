@@ -16,7 +16,7 @@ namespace _02.Target_Practice
                 .ToArray();
             var snakeString = Console.ReadLine();
             var stairs = FillTheStairs(dimensions[0], dimensions[1], snakeString);
-
+            Console.WriteLine(0 % 4);
             var shot = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
