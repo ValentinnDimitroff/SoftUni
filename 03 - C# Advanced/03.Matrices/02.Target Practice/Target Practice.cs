@@ -16,7 +16,7 @@ namespace _02.Target_Practice
                 .ToArray();
             var snakeString = Console.ReadLine();
             var stairs = FillTheStairs(dimensions[0], dimensions[1], snakeString);
-            Console.WriteLine(0 % 4);
+            
             var shot = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
@@ -29,9 +29,9 @@ namespace _02.Target_Practice
 
         private static char[,] DropLeft(char[,] stairs)
         {
-            for (int row = stairs.GetLength(0) - 1; row >= 0 ; row--)
+            for (int col = 0; col < stairs.GetLength(1); col++)
             {
-                for (int col = 0; col < stairs.GetLength(1); col++)
+                for (int row = stairs.GetLength(0) - 1; row >= 0; row--)
                 {
                     if (stairs[row, col] == ' ')
                     {
@@ -42,10 +42,10 @@ namespace _02.Target_Practice
                             {
                                 stairs[row, col] = stairs[nextValidRow, col];
                                 stairs[nextValidRow, col] = ' ';
-                                break;
+                                row--;
                             }
                             nextValidRow--;
-                        }                      
+                        }
                     }
                 }
             }
@@ -85,7 +85,6 @@ namespace _02.Target_Practice
             int deltaCol = checkCol - impactCol;
 
             bool isInRadius = deltaRow * deltaRow + deltaCol * deltaCol <= shotRadius * shotRadius;
-
             return isInRadius;
         }
 
@@ -112,6 +111,7 @@ namespace _02.Target_Practice
                     }
                 }                
             }
+
             return stairs;
         }
     }
