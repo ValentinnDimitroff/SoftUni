@@ -30,8 +30,7 @@ namespace _5.Crossfire
                 //var endRow = tokens[0] + tokens[2] < rows ? tokens[0] + tokens[2] : rows -1;
                 //var beginCol = tokens[1] - tokens[2] >= 0 ? tokens[1] - tokens[2] : 0;
                 //var endCol = tokens[1] + tokens[2] < cols ? tokens[1] + tokens[2] : cols - 1;
-                //if (IsInMatrix(rowShot, 0, matrix))
-                //{
+                
                     for (int col = colShot - radius; col <= colShot + radius; col++)
                     {
                         if (IsInMatrix(rowShot, col, matrix))
@@ -39,10 +38,7 @@ namespace _5.Crossfire
                             matrix[rowShot][col] = -1;
                         }
                     }
-                //}
-
-                //if (IsInMatrix(0, colShot, matrix))
-                //{
+                
                     for (int row = rowShot - radius; row <= rowShot + radius; row++)
                     {
                         if (IsInMatrix(row, colShot, matrix))
@@ -50,15 +46,14 @@ namespace _5.Crossfire
                             matrix[row][colShot] = -1;
                         }
                     }
-                //}
 
-                matrix = FilterMatrix(matrix);
+                FilterMatrix(matrix);
                 command = Console.ReadLine();
             }
             PrintJaggedArray(matrix);
         }
 
-        private static List<List<int>> FilterMatrix(List<List<int>> matrix)
+        private static void FilterMatrix(List<List<int>> matrix)
         {
             //Search the matrix upside down because the Count changes all the time
             for (int row = matrix.Count - 1; row >= 0; row--)
@@ -76,7 +71,6 @@ namespace _5.Crossfire
                     matrix.RemoveAt(row);
                 }
             }
-            return matrix;
         }
 
         private static void PrintJaggedArray(List<List<int>> matrix)

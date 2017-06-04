@@ -10,6 +10,7 @@ namespace _07.Parking_System
             new Dictionary<int, HashSet<int>>();
         private static int parkingRows;
         private static int parkingCols;
+
         public static void Main()
         {
             var dimensions = Console.ReadLine()
