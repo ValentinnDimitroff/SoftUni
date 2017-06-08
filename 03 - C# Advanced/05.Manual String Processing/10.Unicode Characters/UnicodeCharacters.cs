@@ -18,7 +18,7 @@ namespace _10.Unicode_Characters
                 result.Append(@"\u" + $"{(int)letter:x4}");
             }
 
-            Console.WriteLine(result.ToString()); 
+            Console.WriteLine(result); 
         }
     }
 }
