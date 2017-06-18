@@ -29,6 +29,7 @@ public class ListPredicates
                 if (!filter(number, divider))
                 {
                     isValid = false;
+                    break;
                 }
             }
             if (isValid) filteredNumbers.Add(number);

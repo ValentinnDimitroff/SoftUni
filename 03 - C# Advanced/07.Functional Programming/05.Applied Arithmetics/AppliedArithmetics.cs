@@ -21,13 +21,13 @@ namespace _05.Applied_Arithmetics
                 switch (command)
                 {
                     case "add":
-                        numbers = numbers.ForEach(n => n + 1);
+                        numbers.ForEach(n => n + 1);
                         break;
                     case "multiply":
-                        numbers = numbers.ForEach(n => n * 2);
+                        numbers.ForEach(n => n * 2);
                         break;
                     case "subtract":
-                        numbers = numbers.ForEach(n => n - 1);
+                        numbers.ForEach(n => n - 1);
                         break;
                     case "print":
                         Console.WriteLine(string.Join(" ", numbers));
@@ -36,11 +36,9 @@ namespace _05.Applied_Arithmetics
 
                 command = Console.ReadLine();
             }
-
-           // Console.WriteLine(string.Join(" ", numbers));
         }
 
-        public static List<T> ForEach<T>(this List<T> numbers, Func<T,T> operation )
+        public static List<T> ForEach<T>(this List<T> numbers, Func<T, T> operation)
         {
             for (int i = 0; i < numbers.Count(); i++)
             {

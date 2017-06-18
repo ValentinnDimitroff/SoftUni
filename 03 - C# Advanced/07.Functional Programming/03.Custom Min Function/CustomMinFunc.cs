@@ -10,7 +10,18 @@ public class CustomMinFunc
             .Select(int.Parse)
             .ToArray();
 
-        Func<int[], int> getSmallest = n => n.Min();
+        Func<int[], int> getSmallest = n =>
+        {
+            int min = int.MaxValue;
+            foreach (var i in n)
+            {
+                if (min > i)
+                {
+                    min = i;
+                }
+            }
+            return min;
+        };
         Console.WriteLine(getSmallest(numbers));
     }
 }

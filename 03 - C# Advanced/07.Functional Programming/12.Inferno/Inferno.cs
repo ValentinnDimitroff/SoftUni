@@ -10,7 +10,7 @@ public class Inferno
     {
         gems = Console.ReadLine()
             .Split(' ')
-            .Select(Int32.Parse)
+            .Select(int.Parse)
             .ToList();
         var predicates = new Dictionary<string, Dictionary<int, Func<int, bool>>>();
 
