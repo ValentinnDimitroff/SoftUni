@@ -13,7 +13,7 @@ public class CubicArtillery
 
         while ((inputWeapons = Console.ReadLine()) != "Bunker Revision")
         {
-            var tokens = inputWeapons.Split(new[] {' '}, StringSplitOptions.RemoveEmptyEntries);
+            var tokens = inputWeapons.Split(' ');
             foreach (var element in tokens)
             {
                 int weapon;
