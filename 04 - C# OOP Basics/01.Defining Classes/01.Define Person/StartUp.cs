@@ -1,8 +1,7 @@
-﻿using System;
-using System.Reflection;
-
-namespace DefinePerson
+﻿namespace DefinePerson
 {
+    using System;
+    using System.Reflection;
     public class StartUp
     {
         public static void Main()
