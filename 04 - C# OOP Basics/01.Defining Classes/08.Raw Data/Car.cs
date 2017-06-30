@@ -8,6 +8,11 @@ namespace RawData
 {
     public class Car
     {
+        private string model;
+        private Engine engine;
+        private Cargo cargo;
+        private Tire[] tires;
+        
         public Car(string model, int engineSpeed, int enginePower, int cargoWeight, string cargoType,
             double tire1Pressure, int tire1Age, double tire2Pressure, int tire2Age, double tire3Pressure, int tire3age,
             double tire4Pressure, int tire4age)
@@ -21,11 +26,6 @@ namespace RawData
                 new Tire(tire4Pressure, tire4age)
             };
         }
-
-        private string model;
-        private Engine engine;
-        private Cargo cargo;
-        private Tire[] tires;
 
         public Cargo Cargo
         {
