@@ -4,15 +4,18 @@
     using System.Linq;
     using System.Collections.Generic;
 
+
     public class StartUp
     {
         public static void Main()
         {
+        
+            var rectangles = new Dictionary<string, Rectangle>();
             var inputInfo = Console.ReadLine()
                 .Split(' ')
                 .Select(int.Parse)
                 .ToArray();
-            var rectangles = new Dictionary<string, Rectangle>();
+            
             for (int i = 0; i < inputInfo[0]; i++)
             {
                 var rectangleInfo = Console.ReadLine().Split(' ');
@@ -32,6 +35,8 @@
                 var result = rectangles[checkIDs[0]].InteresectsWith(rectangles[checkIDs[1]]);
                 Console.WriteLine(result.ToString().ToLower());
             }
+
+
         }
     }
 }

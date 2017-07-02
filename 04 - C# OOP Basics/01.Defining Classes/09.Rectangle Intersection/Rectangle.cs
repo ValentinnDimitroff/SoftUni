@@ -7,7 +7,14 @@
         private double height;
         private double x;
         private double y;
-
+        public Rectangle(string id, double width, double height, double topLeftHoriz, double topLeftVert)
+        {
+            this.id = id;
+            this.width = width;
+            this.height = height;
+            this.x = topLeftHoriz;
+            this.y = topLeftVert;
+        }
         public double Height
         {
             get { return this.height; }
@@ -25,23 +32,15 @@
             get { return this.y; }
         }
 
-        public Rectangle(string id, double width, double height, double topLeftHoriz, double topLeftVert)
-        {
-            this.id = id;
-            this.width = width;
-            this.height = height;
-            this.x = topLeftHoriz;
-            this.y = topLeftVert;
-        }
+        
 
         public bool InteresectsWith(Rectangle rectangle)
         {
-           if ((this.X <= rectangle.X + rectangle.Width && this.Width + this.X >= rectangle.X)
-                && (this.Y <= rectangle.Y + rectangle.Height && this.Y + this.Height > rectangle.Y))
+            if (this.x <= rectangle.x + rectangle.width && this.x + this.width >= rectangle.x && this.y <= rectangle.y + rectangle.height && this.y + this.height >= rectangle.y)
             {
                 return true;
             }
-            
+
             return false;
         }
     }

@@ -10,7 +10,7 @@
         private string name;
         private int age;
 
-        internal Chicken(string name, int age)
+        public Chicken(string name, int age)
         {
             this.Name = name;
             this.Age = age;
@@ -23,7 +23,7 @@
                 return this.name;
             }
 
-            internal set
+            set
             {
                 if (string.IsNullOrWhiteSpace(value))
                 {
@@ -41,7 +41,7 @@
                 return this.age;
             }
 
-            protected set
+            set
             {
                 if (value < MinAge || value > MaxAge)
                 {
