@@ -43,10 +43,7 @@
 
         public override string ToString()
         {
-            var stringBuilder = new StringBuilder();
-            stringBuilder.Append($"Name: {this.Name}, Age: {this.Age}");
-
-            return stringBuilder.ToString();
+            return $"Name: {this.Name}, Age: {this.Age}";
         }
     }
 }

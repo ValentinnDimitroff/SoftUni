@@ -19,7 +19,7 @@
         protected virtual decimal Price
         {
             get { return this.price; }
-            set
+            private set
             {
                 if (value <= 0)
                 {
@@ -29,7 +29,7 @@
             }
         }
         
-        protected string Author
+        private string Author
         {
             get { return this.author; }
             set
@@ -39,7 +39,7 @@
             }
         }
         
-        protected string Title
+        private string Title
         {
             get { return this.title; }
             set
