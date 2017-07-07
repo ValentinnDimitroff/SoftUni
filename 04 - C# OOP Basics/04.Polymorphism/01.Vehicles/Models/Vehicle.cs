@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace _01.Vehicles
+﻿namespace _01.Vehicles
 {
     public abstract class Vehicle
     {
@@ -17,35 +11,45 @@ namespace _01.Vehicles
             this.FuelConsumptionPerKm = fuelConsumptionPerKm;
         }
 
-        public double FuelConsumptionPerKm
+        private double FuelConsumptionPerKm
         {
             get { return this.fuelConsumptionPerKm; }
-            private set { this.fuelConsumptionPerKm = value; }
+            set { this.fuelConsumptionPerKm = value; }
         }  
 
-        public double FuelQuantity
+        private double FuelQuantity
         {
             get { return this.fuelQuantity; }
-            protected set { this.fuelQuantity = value; }
+            set { this.fuelQuantity = value; }
         }
 
-        protected abstract bool Drive(double distance);
+        private bool Drive(double distance)
+        {
+            var requiredFuel = distance * this.FuelConsumptionPerKm;
+            if (requiredFuel <= this.FuelQuantity)
+            {
+                this.FuelQuantity -= requiredFuel;
+                return true;
+            }
 
-        public virtual string TryDrive(double distance)
+            return false;
+        }
+
+        public string TryTravelDistance(double distance)
         {
             if (this.Drive(distance))
             {
                 return $"{this.GetType().Name} travelled {distance} km";
             }
-            else
-            {
-                return $"{this.GetType().Name} needs refueling";
-            }
+            
+            return $"{this.GetType().Name} needs refueling";
         }
 
-        public virtual void Refuel(double fuelAmount)
+        public virtual void Refuel(double fuelAmount) => this.FuelQuantity += fuelAmount;
+
+        public override string ToString()
         {
-            this.FuelQuantity += fuelAmount;
+            return $"{this.GetType().Name}: {this.FuelQuantity:f2}";
         }
     }
 }

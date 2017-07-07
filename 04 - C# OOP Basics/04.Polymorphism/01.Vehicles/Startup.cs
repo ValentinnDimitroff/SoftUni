@@ -9,6 +9,7 @@
         {
             var vehicleInfo = Console.ReadLine().Split(' ');
             var car = new Car(double.Parse(vehicleInfo[1]), double.Parse(vehicleInfo[2]));
+
             vehicleInfo = Console.ReadLine().Split(' ');
             var truck = new Truck(double.Parse(vehicleInfo[1]), double.Parse(vehicleInfo[2]));
             var commandsNumber = int.Parse(Console.ReadLine());
@@ -27,8 +28,8 @@
                 }
             }
 
-            Console.WriteLine($"Car: {car.FuelQuantity:f2}");
-            Console.WriteLine($"Truck: {truck.FuelQuantity:f2}");
+            Console.WriteLine(car);
+            Console.WriteLine(truck);
         }
 
         public static void ExecuteCommand(Vehicle vehicle, string action, double parameter)
@@ -36,8 +37,7 @@
             switch (action)
             {
                 case "Drive":
-                    var result = vehicle.TryDrive(parameter);
-                    Console.WriteLine(result);
+                    Console.WriteLine(vehicle.TryTravelDistance(parameter));
                     break;
                 case "Refuel":
                     vehicle.Refuel(parameter);
