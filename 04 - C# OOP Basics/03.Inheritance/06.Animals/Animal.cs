@@ -5,7 +5,7 @@
     public abstract class Animal
     {
         private string name;
-        private int? age;
+        private int age;
         private string gender;
 
         public Animal(string name, int age, string gender)
@@ -24,7 +24,7 @@
             }
         }  
 
-        public int? Age
+        public int Age
         {
             get { return this.age; }
             set
@@ -34,7 +34,6 @@
                     throw new InvalidInputException();
                 }
                 this.age = value;
-                // ?? throw new InvalidInputException()
             }
         }  
 

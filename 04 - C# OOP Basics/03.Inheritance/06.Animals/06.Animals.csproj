@@ -55,6 +55,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <Compile Include="Models\Dog.cs" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
