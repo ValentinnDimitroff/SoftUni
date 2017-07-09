@@ -19,21 +19,26 @@
                     var songInfo = Console.ReadLine().Split(';');
                     var artistName = songInfo[0];
                     var songName = songInfo[1];
-                    var duration = songInfo[2]
-                        .Split(':')
-                        .Select(int.Parse)
-                        .ToArray();
-                    var song = new Song(artistName, songName, duration[0], duration[1]);
+                    int[] duration;
+                    try
+                    {
+                        duration = songInfo[2]
+                            .Split(':')
+                            .Select(int.Parse)
+                            .ToArray();
+                    }
+                    catch (Exception e)
+                    {
+                        throw new InvalidSongLengthException();
+                    }
+
+                var song = new Song(artistName, songName, duration[0], duration[1]);
                     playlist.Add(song);
                     Console.WriteLine("Song added.");
                 }
                 catch (InvalidSongException ex)
                 {
                     Console.WriteLine(ex.Message);
-                }
-                catch (FormatException fex)
-                {
-                    Console.WriteLine("Invalid song length.");
                 }
             }
 

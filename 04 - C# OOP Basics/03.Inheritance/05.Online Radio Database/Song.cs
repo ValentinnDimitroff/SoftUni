@@ -9,6 +9,14 @@
         private int minutes;
         private int seconds;
 
+       public Song(string artist, string name, int minutes, int seconds)
+        {
+            this.Artist = artist;
+            this.Name = name;
+            this.Minutes = minutes;
+            this.Seconds = seconds;
+        }
+
         public int Seconds
         {
             get { return this.seconds; }
@@ -21,14 +29,6 @@
 
                 this.seconds = value;
             }
-        }
-
-        public Song(string artist, string name, int minutes, int seconds)
-        {
-            this.Artist = artist;
-            this.Name = name;
-            this.Minutes = minutes;
-            this.Seconds = seconds;
         }
 
         public int Minutes
