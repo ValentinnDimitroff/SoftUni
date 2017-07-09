@@ -1,32 +1,30 @@
 ﻿namespace MordorsCrueltyPlan
 {
     using System;
-    using System.Collections.Generic;
     using Factories;
     using Foods;
+    using Moods;
+    using _04.Mordors_Cruelty_Plan;
 
     public class Program
     {
         public static void Main()
         {
-            var foodsStr = Console.ReadLine()
-                .Split(new char[] { '\t', ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            var gandalf = new Gandalf();
 
-            var foods = new List<Food>();
-            var moodFactor = 0;
+            var inputFood = Console.ReadLine().Split(new[] { '\t', ' ', '\n' }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var item in foodsStr)
+            foreach (var foodStr in inputFood)
             {
-                foods.Add(FoodFactory.MakeFood(item));
+                Food food = FoodFactory.MakeFood(foodStr);
+                gandalf.Eat(food);
             }
 
-            foreach (var food in foods)
-            {
-                moodFactor += food.GetHappinessPoints();
-            }
+            int totalHapinessPoints = gandalf.GetHapinessPoints();
+            Mood currentMood = MoodFactory.GetCorrespondingMood(totalHapinessPoints);
 
-            Console.WriteLine(moodFactor);
-            Console.WriteLine(MoodFactory.GetCorrespondingMood(moodFactor));
+            Console.WriteLine(totalHapinessPoints);
+            Console.WriteLine(currentMood);
         }
     }
 }

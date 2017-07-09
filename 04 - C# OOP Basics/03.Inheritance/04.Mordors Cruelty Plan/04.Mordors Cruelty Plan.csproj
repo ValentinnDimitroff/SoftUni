@@ -44,25 +44,26 @@
   <ItemGroup>
     <Compile Include="Factories\FoodFactory.cs" />
     <Compile Include="Factories\MoodFactory.cs" />
-    <Compile Include="Foods\Apple.cs" />
-    <Compile Include="Foods\Cram.cs" />
-    <Compile Include="Foods\Food.cs" />
-    <Compile Include="Foods\HoneyCake.cs" />
-    <Compile Include="Foods\Junk.cs" />
-    <Compile Include="Foods\Lembas.cs" />
-    <Compile Include="Foods\Melon.cs" />
-    <Compile Include="Foods\Mushrooms.cs" />
-    <Compile Include="Gandalf.cs" />
-    <Compile Include="Moods\Angry.cs" />
-    <Compile Include="Moods\Happy.cs" />
-    <Compile Include="Moods\JavaScript.cs" />
-    <Compile Include="Moods\Mood.cs" />
-    <Compile Include="Moods\Sad.cs" />
+    <Compile Include="Models\Foods\Apple.cs" />
+    <Compile Include="Models\Foods\Cram.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\Foods\HoneyCake.cs" />
+    <Compile Include="Models\Foods\Junk.cs" />
+    <Compile Include="Models\Foods\Lembas.cs" />
+    <Compile Include="Models\Foods\Melon.cs" />
+    <Compile Include="Models\Foods\Mushrooms.cs" />
+    <Compile Include="Models\Gandalf.cs" />
+    <Compile Include="Models\Moods\Angry.cs" />
+    <Compile Include="Models\Moods\Happy.cs" />
+    <Compile Include="Models\Moods\JavaScript.cs" />
+    <Compile Include="Models\Mood.cs" />
+    <Compile Include="Models\Moods\Sad.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
