@@ -13,5 +13,11 @@
 
         public string Name { get; private set; }
         protected List<Animal> StoredAnimals { get; set; }
+
+        public void ReceiveAnimals(List<Animal> animalsForTreating)
+        {
+            this.StoredAnimals.AddRange(animalsForTreating);
+        }
+        public int GetAnimalsNumber() => this.StoredAnimals.Count;
     }
 }

@@ -1,43 +1,16 @@
 ﻿namespace Paws_Inc.Centers
 {
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Threading;
-    using Animals;
+    using Models.Centers;
 
-    public class CleansingCenter : Center
+    public class CleansingCenter : TreatmentCenter
     {
         public CleansingCenter(string name) 
             : base(name) {}
 
-        public void ReceiveAnimals(List<Animal> animalsForCleansing)
-        {
-            this.StoredAnimals.AddRange(animalsForCleansing);
-        }
-
-        private void CleanseAnimals()
+        protected override void TreatAnimals()
         {
             foreach (var animal in this.StoredAnimals)
                 animal.Cleanse();
-        }
-
-        public List<Animal> GetCleansedAnimals()
-        {
-            this.CleanseAnimals();
-            var animalsToSendBack = new List<Animal>();
-
-            foreach (var storedAnimal in this.StoredAnimals)
-            {
-                animalsToSendBack.Add(storedAnimal);
-            }
-            this.StoredAnimals.Clear();
-
-            return animalsToSendBack;
-        }
-
-        public int GetAnimalsWaitingNumber()
-        {
-            return this.StoredAnimals.Count;
         }
     }
 }

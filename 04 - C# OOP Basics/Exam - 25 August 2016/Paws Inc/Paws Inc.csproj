@@ -48,8 +48,10 @@
     <Compile Include="Models\Animals\Dog.cs" />
     <Compile Include="Models\Centers\AdoptionCenter.cs" />
     <Compile Include="Models\Center.cs" />
+    <Compile Include="Models\Centers\CastrationCenter.cs" />
     <Compile Include="Models\Centers\CleansingCenter.cs" />
     <Compile Include="Core\Engine.cs" />
+    <Compile Include="Models\TreatmentCenter.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

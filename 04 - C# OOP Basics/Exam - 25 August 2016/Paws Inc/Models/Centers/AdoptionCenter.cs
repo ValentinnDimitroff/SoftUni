@@ -14,14 +14,21 @@
             this.StoredAnimals.Add(animal);
         }
 
-        public List<Animal> SendAnimalsForCleasing()
+        public List<Animal> SendAnimalsForCleansing()
         {
             var uncleansedAnimals = this.StoredAnimals.Where(a => a.CleansingStatus == false).ToList();
             this.StoredAnimals.RemoveAll(a => a.CleansingStatus == false);
             return uncleansedAnimals;
         }
 
-        public List<Animal> AdopteCleansedAnimals()
+        public List<Animal> SendAnimalsForCastration()
+        {
+            var animalsForCastration = this.StoredAnimals.Where(a => a.Castrated == false).ToList();
+            this.StoredAnimals.RemoveAll(a => a.Castrated == false);
+            return animalsForCastration;
+        }
+
+        public List<Animal> AdoptCleansedAnimals()
         {
             var cleansedAnimals = this.StoredAnimals.Where(a => a.CleansingStatus == true).ToList();
             this.StoredAnimals.RemoveAll(a => a.CleansingStatus == true);
