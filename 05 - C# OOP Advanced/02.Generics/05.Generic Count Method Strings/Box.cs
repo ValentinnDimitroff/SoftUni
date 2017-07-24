@@ -1,13 +1,14 @@
 ﻿namespace _05.Generic_Count_Method_Strings
 {
     using System;
-    public class Box<T> : IComparable<Box<T>> where T : IComparable
+    public class Box<T> : IComparable<Box<T>>
+        where T : IComparable
     {
         public Box(T value)
         {
             this.Value = value;
         }
-        public T Value { get; set; }
+        public T Value { get; private set; }
 
         public override string ToString()
         {

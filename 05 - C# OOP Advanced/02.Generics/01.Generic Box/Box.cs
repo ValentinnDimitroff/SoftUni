@@ -6,7 +6,8 @@
         {
             this.Value = value;
         }
-        public T Value { get; set; }
+
+        public T Value { get; private set; }
 
         public override string ToString()
         {

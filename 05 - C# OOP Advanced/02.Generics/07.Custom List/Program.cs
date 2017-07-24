@@ -1,14 +1,13 @@
 ﻿namespace _07.Custom_List
 {
     using System;
-    using System.Linq;
 
     public class Program
     {
         public static void Main()
         {
             var myCustomList = new CustomList<string>();
-
+            
             string inputLine;
             while ((inputLine = Console.ReadLine()) != "END")
             {

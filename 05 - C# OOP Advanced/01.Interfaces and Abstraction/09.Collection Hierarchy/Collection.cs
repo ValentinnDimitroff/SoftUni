@@ -5,7 +5,7 @@
     public abstract class Collection<T>
     {
         private const int MaxSize = 100;
-        protected List<T> items;
+        protected IList<T> items;
 
         protected Collection()
         {

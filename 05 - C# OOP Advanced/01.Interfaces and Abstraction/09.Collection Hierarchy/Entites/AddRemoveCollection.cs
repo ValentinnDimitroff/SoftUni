@@ -1,6 +1,5 @@
 ﻿namespace _09.Collection_Hierarchy
 {
-    using System.Runtime.InteropServices.ComTypes;
     using Interfaces;
     public class AddRemoveCollection<T> : Collection<T>, IAddRemoveCollection<T>
     {

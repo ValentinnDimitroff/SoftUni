@@ -8,13 +8,18 @@
     public class CustomList<T> : ICustomList<T>, IEnumerable<T>
         where T : IComparable
     {
-        private List<T> list;
+        private readonly IList<T> list;
 
         public CustomList()
         {
             this.list = new List<T>();
         }
-        
+
+        public IList<T> Elements
+        {
+            get => this.list;
+        }
+
         public void Add(T element) => this.list.Add(element);
 
         public T Remove(int index)
@@ -41,14 +46,11 @@
 
         public IEnumerator<T> GetEnumerator() => this.list.GetEnumerator();
 
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return this.GetEnumerator();
-        }
+        IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
 
-        public T this[int index]
-        {
-            get { return this.list[index]; }
-        }
+        //public T this[int index]
+        //{
+        //    get { return this.list[index]; }
+        //}
     }
 }

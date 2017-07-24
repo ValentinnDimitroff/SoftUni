@@ -8,7 +8,7 @@
     {
         public static void Main()
         {
-            var boxes = new List<Box<string>>();
+            IList<Box<string>> boxes = new List<Box<string>>();
             var numberOfStrings = int.Parse(Console.ReadLine());
 
             for (int i = 0; i < numberOfStrings; i++)
@@ -22,13 +22,13 @@
             Console.WriteLine(result);
         }
 
-        public static int GetGreaterElementsCount<T>(List<T> list, T element)
+        public static int GetGreaterElementsCount<T>(IList<T> list, T element)
             where T : IComparable<T>
         {
             return list.Count(x => x.CompareTo(element) > 0);
         }
 
-        //public static int GetGreaterElementsCount<T> (List<Box<T>> list, Box<T> element)
+        //public static int GetGreaterElementsCount<T>(IList<Box<T>> list, Box<T> element)
         //    where T : IComparable
         //{
         //    return list.Count(x => x.Value.CompareTo(element.Value) > 0);

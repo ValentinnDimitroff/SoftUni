@@ -1,6 +1,7 @@
 ﻿namespace _08.Custom_List_Sorter
 {
     using System;
+    using System.Linq;
 
     public class Program
     {
@@ -44,7 +45,7 @@
                         }
                         break;
                     case "Sort":
-                        myCustomList = Sorter.Sort(myCustomList);
+                        myCustomList = Sorter.Sort(myCustomList); 
                         break;
                 }
             }
