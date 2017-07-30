@@ -30,7 +30,7 @@
 
         private void Resize()
         {
-            var newCollection = new T[2 * this.collection.Length];
+            var newCollection = new T[2 * this.Capacity];
             Array.Copy(this.collection, newCollection, this.Count);
             this.collection = newCollection;
         }

@@ -17,17 +17,22 @@
         public override bool Equals(object obj)
         {
             Person other = obj as Person;
-            if (other == null)
-            {
-                return false;
-            }
+            //if (other == null)
+            //{
+            //    return false;
+            //}
 
-            if (this.CompareTo(other) == 0)
-            {
-                return true;
-            }
+            //if (this.CompareTo(other) == 0)
+            //{
+            //    return true;
+            //}
 
-            return false;
+            //return false;
+
+            //int result = other?.CompareTo(this) ?? 1;
+            //return result == 0;
+
+            return other != null && this.CompareTo(other) == 0;
         }
 
         public int CompareTo(Person other)
