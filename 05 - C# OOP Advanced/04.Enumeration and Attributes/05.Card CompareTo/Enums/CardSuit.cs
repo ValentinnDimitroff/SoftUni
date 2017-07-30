@@ -1,0 +1,10 @@
+﻿namespace _05.Card_CompareTo.Enums
+{
+    public enum CardSuit
+    {
+        Clubs = 0,
+        Diamonds = 13,
+        Hearts = 26,
+        Spades = 39
+    }
+}
