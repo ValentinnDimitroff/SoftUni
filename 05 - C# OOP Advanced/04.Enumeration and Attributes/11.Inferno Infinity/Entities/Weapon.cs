@@ -5,13 +5,11 @@
     using Enums;
     using Interfaces;
 
+    [Contribution("Pesho", 3, "Used for C# OOP Advanced Course - Enumerations and Attributes.", "Pesho", "Svetlio")]
     public abstract class Weapon : IWeapon
     {
         private int minDamage;
         private int maxDamage;
-        private int strength;
-        private int agility;
-        private int vitality;
         
         protected Weapon(string name, int minDamage, int maxDamage, int numberOfSockets, Rarity damageModifier)
         {
@@ -41,19 +39,10 @@
         public Rarity DamageModifier { get; }
 
         public int Vitality => this.Sockets.Where(x => x != null).Sum(g => g.Vitality);
-        
 
-        public int Agility
-        {
-            get => this.Sockets.Where(x => x != null).Sum(g => g.Agility);
-            set => this.agility = value; 
-        }
+        public int Agility => this.Sockets.Where(x => x != null).Sum(g => g.Agility);
 
-        public int Strength
-        {
-            get => this.Sockets.Where(x => x != null).Sum(g => g.Strength);
-            set => this.strength = value; 
-        }
+        public int Strength => this.Sockets.Where(x => x != null).Sum(g => g.Strength);
 
         public void InsertGem(IGem gem, int index)
         {
@@ -61,6 +50,7 @@
             {
                 return;
             }
+
             this.Sockets[index] = gem;
         }
 
@@ -70,6 +60,7 @@
             {
                 return;
             }
+
             this.Sockets[index] = null;
         }
 

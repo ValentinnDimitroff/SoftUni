@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ContributionAttribute.cs" />
     <Compile Include="Entities\Gem.cs" />
     <Compile Include="Entities\Gems\Amethyst.cs" />
     <Compile Include="Entities\Gems\Emerald.cs" />

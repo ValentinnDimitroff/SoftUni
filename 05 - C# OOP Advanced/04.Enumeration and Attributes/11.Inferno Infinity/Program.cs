@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Reflection;
     using Entities;
     using Factories;
     using Interfaces;
@@ -13,6 +14,7 @@
             Dictionary<string, IWeapon> weapons = new Dictionary<string, IWeapon>();
             WeaponFactory weapongFactory = new WeaponFactory();
             GemFactory gemFactory = new GemFactory();
+            ContributionAttribute contribAttribute = typeof(Weapon).GetCustomAttribute<ContributionAttribute>();
 
             string inputLine;
             while ((inputLine = Console.ReadLine()) != "END")
@@ -37,6 +39,18 @@
                     case "Print":
                         weаpon = weapons[commandArgs[1]];
                         weаpon.Print();
+                        break;
+                    case "Author":
+                        Console.WriteLine($"Author: {contribAttribute.Author}");
+                        break;
+                    case "Revision":
+                        Console.WriteLine($"Revision: {contribAttribute.Revision}");
+                        break;
+                    case "Description":
+                        Console.WriteLine($"Class description: {contribAttribute.Desctiption}");
+                        break;
+                    case "Reviewers":
+                        Console.WriteLine($"Reviewers: {string.Join(", ", contribAttribute.Reviewers)}");
                         break;
                 }
             }
