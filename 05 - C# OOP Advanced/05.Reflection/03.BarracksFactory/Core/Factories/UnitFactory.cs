@@ -9,8 +9,8 @@
 
         public IUnit CreateUnit(string unitType)
         {
-            Type t = Type.GetType(NamespacePath + unitType);
-            IUnit unit = (IUnit)Activator.CreateInstance(t);
+            Type untiType = Type.GetType(NamespacePath + unitType);
+            IUnit unit = (IUnit)Activator.CreateInstance(untiType);
             return unit;
         }
     }

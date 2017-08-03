@@ -9,13 +9,7 @@
         public static void Main()
         {
             Type blackBoxIntType = typeof(BlackBoxInt);
-            ConstructorInfo blackBoxCtor = blackBoxIntType
-                .GetConstructor(
-                    BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic,
-                    null,
-                    Type.EmptyTypes,
-                    null);
-            BlackBoxInt myBlackBox = (BlackBoxInt)blackBoxCtor.Invoke(new object[] {});
+            BlackBoxInt myBlackBox = (BlackBoxInt) Activator.CreateInstance(blackBoxIntType, true);
 
             FieldInfo[] fields = blackBoxIntType.GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
             string fieldName = fields.FirstOrDefault().Name;

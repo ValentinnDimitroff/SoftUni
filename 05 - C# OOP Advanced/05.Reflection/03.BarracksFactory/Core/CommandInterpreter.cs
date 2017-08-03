@@ -56,7 +56,7 @@
             FieldInfo[] fieldsOfInterpreter = typeof(CommandInterpreter)
                 .GetFields(BindingFlags.Instance | BindingFlags.NonPublic);
 
-            foreach (FieldInfo field in fieldsOfCommand.Where(f => f.GetCustomAttribute<Inject>() != null))
+            foreach (FieldInfo field in fieldsOfCommand.Where(f => f.GetCustomAttribute<InjectAttribute>() != null))
             {
                 if (fieldsOfInterpreter.Any(x => x.FieldType == field.FieldType))
                 {
